@@ -4,11 +4,17 @@ from .exceptions import InvalidTaskDueDateException
 
 
 def parse_date(date_str):
-    pass
-
+    formats = ['%Y-%M-%D', '%Y-%M-%D %H:%M:%S']
+    try:
+        return datetime.strptime(date_str, formats)
+    except:
+        return None
 
 def parse_int(value):
-    pass
+    try:
+        return int(value)
+    except ValueError:
+        return None
 
 
 def serialize(tasks):
